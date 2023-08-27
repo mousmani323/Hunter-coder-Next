@@ -25,3 +25,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.mainnav ul li{
+  padding: 0 10px;
+  color: rgb(213, 255, 255);
+  cursor: pointer;
+  font-weight: bold;
+}
