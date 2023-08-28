@@ -27,7 +27,16 @@ body {
 }
 .mainnav ul li{
   padding: 0 10px;
-  color: rgb(213, 255, 255);
+  color: rgb(228, 228, 228);
   cursor: pointer;
   font-weight: bold;
+}
+@media (max-width: 640px) {
+  .mainnav ul {
+    text-align: center;
+    font-size: small;
+  }
+  .nav-item {
+    margin: 6px 0;
+  }
 }

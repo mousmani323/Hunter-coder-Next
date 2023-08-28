@@ -31,7 +31,16 @@ const About = () => {
         temporibus nobis itaque enim quam recusandae eius delectus tempore
         sapiente. Accusamus qui rem similique dicta nisi.
       </p>
-
+      <ul className="text-lg mb-4">
+        <li>service 1</li>
+        <li>service 1</li>
+        <li>service 1</li>
+        <li>service 1</li>
+      </ul>
+      <p className="text-lg mb-4">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo
+        temporibus nobis itaque enim 
+      </p>
       <div>
         <Card
           className="my-3"
