@@ -59,7 +59,10 @@ const Contact = () => {
           </UncontrolledAlert>
         )}
       </div>
-      <div className="flex items-center justify-center h-screen">
+      <h1 className="text-4xl text-center mt-16 font-bold">
+        You're feedback is valuable to us
+      </h1>
+      <div className="flex  justify-center my-10">
         <Form
           onSubmit={handleSubmit}
           className="group rounded-lg border border-transparent px-5 py-4 "
