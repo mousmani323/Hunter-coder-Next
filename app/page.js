@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const App = () => {
- 
   return (
     <main className="flex min-h-screen flex-col items-center p-0">
       <div className="flex flex-col">
@@ -13,11 +11,12 @@ const App = () => {
           <h1 className="text-6xl ">Hunter Coder</h1>
           <p className="text-2xl">A blog for Code Hunters</p>
           <div className="mt-5">
-            <Image
+            <img
               className="rounded-xl"
-              src="/homeimg.jpg"
               width={300}
               height={300}
+              src="/homeimg.jpg"
+              alt="hunting coder"
             />
           </div>
         </div>
