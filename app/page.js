@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 const App = () => {
@@ -9,10 +10,17 @@ const App = () => {
           <h1 className="lg:text-6xl sm:text-4xl">Hunter Coder</h1>
           <p className="lg:text-2xl sm:text-lg">A blog for Code Hunters</p>
           <div className="mt-5">
-            <img
+            {/* <img
               className="rounded-xl lg:w-80 sm:w-48 lg:h-72 sm:h-36"
               src="/homeimg.jpg"
               alt="hunting coder"
+            /> */}
+            <Image
+              className="rounded-xl lg:w-80 sm:w-48 lg:h-72 sm:h-36"
+              src="/homeimg.jpg"
+              alt="hunting coder"
+              width={320} // Set the desired width for the image
+              height={280} // Set the desired height for the image
             />
           </div>
         </div>
