@@ -66,7 +66,7 @@ const Contact = () => {
         )}
       </div>
       <h1 className="lg:text-4xl sm:text-xl text-center mt-16 font-bold">
-        You're feedback is valuable to us
+        You&apos;re feedback is valuable to us
       </h1>
       <div className="flex justify-center my-10">
         <Form
