@@ -30,7 +30,6 @@ const Contact = () => {
       body: JSON.stringify(data),
     });
     if (response.ok) {
-      console.log("Form data submitted successfully");
       setname("");
       setdesc("");
       setemail("");
