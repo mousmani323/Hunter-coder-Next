@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Blogs = async () => {
 
-  const res = await fetch("http://localhost:3000/api/blogs");
+  const res = await fetch(`${process.env.API_URL}/api/blogs`);
   const data = await res.json();
 
   return (
