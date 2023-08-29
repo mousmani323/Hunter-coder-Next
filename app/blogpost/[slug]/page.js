@@ -8,8 +8,8 @@ const Slug = async ({ params }) => {
     return (
     <>
       <div>
-        <h2 className="m-10 text-4xl text-center">{data && data.title} </h2>
-        <p  className="px-20" >{data && data.content}</p>
+        <h2 className="m-10 lg:text-4xl sm:text-xl text-center">{data && data.title} </h2>
+        <p  className="px-20 lg:text-lg sm:text-sm" >{data && data.content}</p>
       </div>
     </>
   );

@@ -1,6 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import { Button, Form, FormGroup, Label, Col, Input , UncontrolledAlert } from "reactstrap";
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Col,
+  Input,
+  UncontrolledAlert,
+} from "reactstrap";
 
 const Contact = () => {
   const [name, setname] = useState("");
@@ -31,7 +39,6 @@ const Contact = () => {
       setTimeout(() => {
         setopen(false);
       }, 3000);
-      
     } else {
       console.error("Failed to submit form data");
     }
@@ -52,25 +59,27 @@ const Contact = () => {
 
   return (
     <div>
-      <div className="fixed z-50 right-3 w-1/5 ">
+      <div className="fixed z-50 right-3 lg:w-1/5 sm:w-3/5 ">
         {open && (
           <UncontrolledAlert className="h-20" color="success">
             Thank you for contacting us
           </UncontrolledAlert>
         )}
       </div>
-      <h1 className="text-4xl text-center mt-16 font-bold">
+      <h1 className="lg:text-4xl sm:text-xl text-center mt-16 font-bold">
         You're feedback is valuable to us
       </h1>
-      <div className="flex  justify-center my-10">
+      <div className="flex justify-center my-10">
         <Form
           onSubmit={handleSubmit}
-          className="group rounded-lg border border-transparent px-5 py-4 "
+          className="group rounded-lg border border-transparent lg:px-5 sm:px-0 py-4 "
         >
-          <div className="flex items-center justify-center mb-16 mt-2">
-            <h1 className="text-4xl font-semibold">Contact Us</h1>
+          <div className="flex items-center justify-center lg:mb-16 sm:mb-8 mt-2">
+            <h1 className="lg:text-4xl sm:text-2xl font-semibold">
+              Contact Us
+            </h1>
           </div>
-          <FormGroup row>
+          <FormGroup row className="px-4">
             <Label for="name" sm={2}>
               Name
             </Label>
@@ -80,12 +89,13 @@ const Contact = () => {
                 name="name"
                 placeholder="write your name"
                 type="text"
+                className="lg:ml-3"
                 value={name}
                 onChange={handleChange}
               />
             </Col>
           </FormGroup>
-          <FormGroup row>
+          <FormGroup row className="px-4">
             <Label for="exampleEmail" sm={2}>
               Email
             </Label>
@@ -95,14 +105,15 @@ const Contact = () => {
                 name="email"
                 placeholder="write you email"
                 type="email"
+                className="lg:ml-3"
                 value={email}
                 onChange={handleChange}
               />
             </Col>
           </FormGroup>
-          <FormGroup row>
+          <FormGroup row className="px-4">
             <Label for="examplePassword" sm={2}>
-              phone number
+              Phone number
             </Label>
             <Col sm={10}>
               <Input
@@ -110,21 +121,23 @@ const Contact = () => {
                 name="phone"
                 placeholder="write your phone number"
                 type="number"
+                className="lg:ml-3"
                 value={phone}
                 onChange={handleChange}
               />
             </Col>
           </FormGroup>
 
-          <FormGroup row>
+          <FormGroup row className="px-4">
             <Label for="exampleText" sm={2}>
-              Text Area
+              Your Feedback
             </Label>
             <Col sm={10}>
               <Input
                 id="exampleText"
                 name="desc"
                 type="textarea"
+                className="lg:ml-3"
                 value={desc}
                 onChange={handleChange}
               />
@@ -138,9 +151,9 @@ const Contact = () => {
                 size: 10,
               }}
             >
-              
-                <Button disabled={!isFormValid} color="primary">Submit</Button>
-             
+              <Button disabled={!isFormValid} color="primary">
+                Submit
+              </Button>
             </Col>
           </FormGroup>
         </Form>
