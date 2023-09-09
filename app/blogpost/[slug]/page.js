@@ -2,14 +2,22 @@ import React from "react";
 
 const Slug = async ({ params }) => {
 
-    const res = await fetch(`http://localhost:3000/api/getblogs?slug=${params.slug}`)
-    const data = await res.json();
- 
-    return (
+  function createMarkup(c){
+    return {__html: c}
+  }
+  const res = await fetch(
+    `https://api.slingacademy.com/v1/sample-data/blog-posts/${params.slug}`
+  );
+  const data = await res.json();
+
+  return (
     <>
       <div>
-        <h2 className="m-10 lg:text-4xl sm:text-xl text-center">{data && data.title} </h2>
-        <p  className="px-20 lg:text-lg sm:text-sm" >{data && data.content}</p>
+        <h2 className="m-10 lg:text-4xl sm:text-xl text-center">
+          {data.blog.title}
+        </h2>
+        <hr />
+        <p dangerouslySetInnerHTML={createMarkup(data.blog.content_html)} className="lg:px-40 sm:px-20 lg:text-lg sm:text-sm"></p>
       </div>
     </>
   );
