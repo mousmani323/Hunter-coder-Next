@@ -2,7 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 
-const App = () => {
+const App = async () => {
+
+  const res = await fetch("https://api.slingacademy.com/v1/sample-data/blog-posts?offset=15&limit=6");
+  const data = await res.json();
+
   return (
     <main className="flex min-h-screen flex-col items-center p-0">
       <div className="flex flex-col">
@@ -25,20 +29,36 @@ const App = () => {
         </h2>
         <hr />
         <div className="flex flex-wrap justify-center items-center mt-6 text-start">
-          {/* First Link */}
-          <div className="group rounded-lg border border-transparent lg:px-5 sm:px-2 lg:py-4 sm:py-2 m-2 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-            <Link href="/blogs">
-              <h2 className="mb-1 text-2xl sm:text-lg font-semibold">
-                The best way to learn Javascript in 2022{" "}
-                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                  -&gt;
-                </span>
-              </h2>
-              <p className="mt-2 text-start max-w-[40ch] text-sm sm:text-xs opacity-50">
-                Find in-depth information about Javascript
-              </p>
-            </Link>
-          </div>
+          {Array.isArray(data?.blogs) ? (
+          data.blogs.map((blogItem) => {
+            return (
+              <div
+                key={blogItem.id}
+                className="flex justify-center mx-4 lg:mt-10 sm:mt-4 lg:mb-0 lg:grid-cols-2 text-left"
+              >
+                <Link href={`/blogpost/${blogItem.id}`}>
+                  <div style={
+                    {width : "60vw"}
+                  } className="group rounded-lg border border-transparent lg:px-5 sm:px-2 lg:py-4 sm:py-2 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+                    <h2 className="mb-2 lg:text-2xl sm:text-lg font-semibold">
+                      {blogItem.title}
+                      <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                        -&gt;
+                      </span>
+                    </h2>
+                    <p className="text-start max-w-[40ch] text-sm opacity-50">
+                      Find in-depth information about {blogItem.category}
+                    </p>
+                    <p>{blogItem.description.substr(0, 80)}...</p>
+                  </div>
+                </Link>
+              </div>
+            );
+          })
+        ) : (
+          // Handle the case when data is not in the expected format, e.g., display an error message
+          <p>Error: Data format is not as expected</p>
+        )}
         </div>
       </div>
     </main>
