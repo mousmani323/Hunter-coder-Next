@@ -22,7 +22,7 @@ const Contact = () => {
 
     const data = { name, phone, email, desc };
 
-    const response = await fetch("http://localhost:3000/api/postcontact", {
+    const response = await fetch("https://dummy.restapiexample.com/api/v1/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +58,7 @@ const Contact = () => {
 
   return (
     <div>
-      <div className="fixed z-50 right-3 lg:w-1/5 sm:w-3/5 ">
+      <div className="fixed z-50 right-3 top-3 lg:w-1/5 sm:w-3/5 ">
         {open && (
           <UncontrolledAlert className="h-20" color="success">
             Thank you for contacting us
