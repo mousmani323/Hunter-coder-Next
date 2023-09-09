@@ -15,7 +15,7 @@ const App = async () => {
           <p className="lg:text-2xl sm:text-lg">A blog for Code Hunters</p>
           <div className="mt-5">
             <Image
-              className="rounded-xl lg:w-80 sm:w-48 lg:h-72 sm:h-36"
+              className="rounded-xl object-cover lg:w-80 sm:w-48 lg:h-72 sm:h-36"
               src="/homeimg.jpg"
               alt="hunting coder"
               width={320} // Set the desired width for the image
