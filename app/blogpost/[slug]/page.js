@@ -17,7 +17,7 @@ const Slug = async ({ params }) => {
           {data.blog.title}
         </h2>
         <hr />
-        <p dangerouslySetInnerHTML={createMarkup(data.blog.content_html)} className="lg:px-40 sm:px-20 lg:text-lg sm:text-sm"></p>
+        <p dangerouslySetInnerHTML={createMarkup(data.blog.content_html)} className="mt-4 lg:px-40 sm:px-20 lg:text-lg sm:text-sm"></p>
       </div>
     </>
   );
