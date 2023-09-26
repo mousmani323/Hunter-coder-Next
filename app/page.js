@@ -11,15 +11,15 @@ const App = async () => {
     <main className="flex min-h-screen flex-col items-center p-0">
       <div className="flex flex-col">
         <div className="relative flex place-items-center flex-col mt-10">
-          <h1 className="lg:text-6xl sm:text-4xl">Hunter Coder</h1>
-          <p className="lg:text-2xl sm:text-lg">A blog for Code Hunters</p>
+          <h1 className="lg:text-4xl sm:text-2xl">Hunter Coder</h1>
+          <p className="lg:text-lg sm:text-md">A blog for Code Hunters</p>
           <div className="mt-5">
             <Image
-              className="rounded-xl object-cover lg:w-80 sm:w-48 lg:h-72 sm:h-36"
+              className="rounded-xl object-cover lg:w-64 sm:w-48 lg:h-52 sm:h-36"
               src="/homeimg.jpg"
               alt="hunting coder"
-              width={320} // Set the desired width for the image
-              height={280} // Set the desired height for the image
+              width={140} // Set the desired width for the image
+              height={100} // Set the desired height for the image
             />
           </div>
         </div>
