@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { UncontrolledAlert } from "reactstrap";
 import { FaCheck } from 'react-icons/fa';
+import Image from "next/image";
 
 const Footer = () => {
   const [email, setemail] = useState("");
@@ -160,21 +161,10 @@ const Footer = () => {
         </div>
         <div className="bg-gray-100">
           <div className=" px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
-            <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-10 h-10 text-white p-2 bg-gray-500 rounded-full"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-              </svg>
+            <div className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+            <Image src="/android-chrome-192x192.png" alt="nav Image" width={25} height={20} />
               <span className="ml-3 text-xl">Hunter Coder</span>
-            </a>
+            </div>
             <p className="text-sm text-gray-500 sm:ml-6 sm:mt-0">
               © 2020 HunterCoder —
               <a
