@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import {FaCheck} from 'react-icons/fa';
 import {
   Button,
   Form,
@@ -22,13 +23,16 @@ const Contact = () => {
 
     const data = { name, phone, email, desc };
 
-    const response = await fetch("https://dummy.restapiexample.com/api/v1/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://dummy.restapiexample.com/api/v1/create",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
     if (response.ok) {
       setname("");
       setdesc("");
@@ -58,13 +62,13 @@ const Contact = () => {
 
   return (
     <div>
-      <div className="fixed z-50 right-3 top-3 lg:w-1/5 sm:w-3/5 ">
-        {open && (
-          <UncontrolledAlert className="h-20" color="success">
-            Thank you for contacting us
-          </UncontrolledAlert>
-        )}
-      </div>
+      <div className="fixed z-50 right-3 top-3 lg:w-4/12 sm:w-3/5 ">
+          {open && (
+            <UncontrolledAlert className="p-3 flex items-center space-x-1" color="success">
+             <span className="m-2"><FaCheck /></span> Thank you for contacting us
+            </UncontrolledAlert>
+          )}
+        </div>
       <h1 className="lg:text-4xl sm:text-xl text-center mt-16 font-bold">
         You&apos;re feedback is valuable to us
       </h1>
