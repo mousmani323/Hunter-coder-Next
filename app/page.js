@@ -4,7 +4,7 @@ import React from "react";
 
 const App = async () => {
 
-  const res = await fetch("https://api.slingacademy.com/v1/sample-data/blog-posts?offset=15&limit=6");
+  const res = await fetch("https://api.slingacademy.com/v1/sample-data/blog-posts?offset=15&limit=3");
   const data = await res.json();
 
   return (
@@ -18,13 +18,13 @@ const App = async () => {
               className="rounded-xl object-cover lg:w-64 sm:w-48 lg:h-52 sm:h-36"
               src="/homeimg.jpg"
               alt="hunting coder"
-              width={140} // Set the desired width for the image
-              height={100} // Set the desired height for the image
+              width={140} 
+              height={100} 
             />
           </div>
         </div>
 
-        <h2 className="m-10 lg:text-4xl sm:text-xl text-center">
+        <h2 className="m-10 lg:text-xl sm:text-lg text-center">
           Popular Blogs
         </h2>
         <hr />
