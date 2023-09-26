@@ -1,6 +1,8 @@
-import React from "react";
+'use client'
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Loader from "@/components/Loader";
 
 const formatDateString = (dateString) => {
   const options = {
@@ -15,11 +17,31 @@ const formatDateString = (dateString) => {
   return date.toLocaleDateString(undefined, options);
 };
 
-const Blogs = async () => {
-  const res = await fetch(
-    "https://api.slingacademy.com/v1/sample-data/blog-posts"
-  );
-  const data = await res.json();
+const Blogs = () => {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Simulate a 3-second delay before setting loading to false
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
+  useEffect(() => {
+    if (!loading) {
+      // Fetch the API after the delay
+      fetch("https://api.slingacademy.com/v1/sample-data/blog-posts")
+        .then((res) => res.json())
+        .then((result) => {
+          setData(result.blogs);
+        })
+        .catch((error) => {
+          console.error(error);
+          // Handle errors here
+        });
+    }
+  }, [loading]);
 
   return (
     <>
@@ -27,13 +49,18 @@ const Blogs = async () => {
         All Blogs
       </h2>
       <hr />
-      {Array.isArray(data?.blogs) ? (
-        data.blogs.map((blogItem) => {
-          return (
-            <div
-              key={blogItem.id}
-              className="flex justify-center mx-4 lg:mt-10 sm:mt-4 lg:mb-0 lg:grid-cols-2 text-left"
-            >
+      {loading ? (
+        // Display the Loader component during the 3-second delay
+        <span className="flex justify-center items-center h-screen"><Loader /></span>
+      ) : (
+        <>
+          {Array.isArray(data) ? (
+            data.map((blogItem) => {
+              return (
+                <div
+                  key={blogItem.id}
+                  className="flex justify-center mx-4 lg:mt-10 sm:mt-4 lg:mb-0 lg:grid-cols-2 text-left"
+                >
               <div
                 style={{ width: "60vw" }}
                 className="group rounded-lg border border-transparent lg:px-5 sm:px-3 lg:py-4 sm:py-2 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
@@ -68,14 +95,21 @@ const Blogs = async () => {
                 </div>
               </div>
             </div>
-          );
-        })
-      ) : (
-        // Handle the case when data is not in the expected format, e.g., display an error message
-        <p>Error: Data format is not as expected</p>
-      )}
-    </>
-  );
+           );
+          })
+        ) : (
+          // Handle the case when data is not in the expected format, e.g., display an error message
+          <p>Error: Data format is not as expected</p>
+        )}
+      </>
+    )}
+  </>
+);
 };
 
 export default Blogs;
+
+
+
+
+
