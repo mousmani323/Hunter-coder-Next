@@ -42,7 +42,7 @@ const Blogs = async () => {
                   <div className="flex justify-between">
                     <div className="flex flex-row items-center">
                       <div className="pr-2">
-                        <Image src="https://api.slingacademy.com/public/sample-blog-posts/1.png" className="rounded-full mb-2" width={50} height={50} alt="blog image"  />
+                        <Image src={`https://api.slingacademy.com/public/sample-blog-posts/${blogItem.id}.png`} className="rounded-full mb-2" width={50} height={50} alt="blog image"  />
                       </div>
                       <h2 className="mb-2 lg:text-2xl sm:text-lg font-semibold">
                         {blogItem.title}
@@ -61,7 +61,7 @@ const Blogs = async () => {
                 </p>
                 <p>{blogItem.description.substr(0, 80)}...</p>
                 <div
-                  className="bg-gray-400 text-sm mt-2 rounded p-1"
+                  className="bg-gray-400 text-sm mt-2 rounded-xl p-1"
                   style={{ display: "inline-block" }}
                 >
                   {blogItem.category}
